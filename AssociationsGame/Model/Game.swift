@@ -13,7 +13,7 @@ struct Game {
     var score: Int
 }
 
-enum Difficulty {
+enum Difficulty: Int {
     case easy
     case normal
     case hard

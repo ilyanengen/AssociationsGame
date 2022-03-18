@@ -19,16 +19,24 @@ class AppViewController: UIViewController {
         startVC.delegate = self
         add(startVC)
     }
+    
+    private func showGameScreen(game: Game) {
+        let gameVC = GameViewController(game: game)
+        gameVC.delegate = self
+        add(gameVC)
+    }
 }
 
 extension AppViewController: StartViewControllerDelegate {
-    func startViewControllerDidCreateGame(_ game: Game) {
-        // TODO: pass game to GameVC
+    func startViewControllerDidCreateGame(_ controller: StartViewController, game: Game) {
+        showGameScreen(game: game)
+        controller.remove()
     }
 }
 
 extension AppViewController: GameViewControllerDelegate {
-    func gameViewControllerDidFinishGame(_ game: Game) {
-        // TODO: pass game VC to Results vc
+    func gameViewControllerDidFinishGame(_ controller: GameViewController, game: Game) {
+        showStartScreen()
+        controller.remove()
     }
 }

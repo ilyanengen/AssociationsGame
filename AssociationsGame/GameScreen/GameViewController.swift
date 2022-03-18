@@ -9,6 +9,19 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    weak var delegate: GameViewControllerDelegate?
+    
+    private var game: Game
+    
+    init(game: Game) {
+        self.game = game
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,5 +29,5 @@ class GameViewController: UIViewController {
 }
 
 protocol GameViewControllerDelegate: AnyObject {
-    func gameViewControllerDidFinishGame(_ game: Game)
+    func gameViewControllerDidFinishGame(_ controller: GameViewController, game: Game)
 }

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartViewController" customModule="AssociationsGame" customModuleProvider="target">
             <connections>
+                <outlet property="difficultySegmentedControl" destination="f1z-wd-8Qe" id="P5K-R1-dda"/>
+                <outlet property="playerNameTextfield" destination="XaE-DA-ptX" id="XF7-Kj-gui"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,32 +20,44 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2w6-Td-sKp">
-                    <rect key="frame" x="20" y="380" width="374" height="146"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игрок" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8x-qH-J2a">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="27.5"/>
-                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XaE-DA-ptX">
-                            <rect key="frame" x="0.0" y="47.5" width="374" height="37"/>
-                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-QX-jpx">
-                            <rect key="frame" x="0.0" y="104.5" width="374" height="41.5"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Начать игру">
-                                <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
-                            </buttonConfiguration>
-                        </button>
-                    </subviews>
-                </stackView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-wd-8Qe">
+                    <rect key="frame" x="20" y="209" width="374" height="32"/>
+                    <segments>
+                        <segment title="Легкий"/>
+                        <segment title="Средний"/>
+                        <segment title="Тяжелый"/>
+                    </segments>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уровень сложности" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVO-pB-Ixi">
+                    <rect key="frame" x="20" y="176.5" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-QX-jpx">
+                    <rect key="frame" x="20" y="354.5" width="374" height="34.5"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Начать игру">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="startButtonDidTap:" destination="-1" eventType="touchUpInside" id="7x3-II-Xx3"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XaE-DA-ptX">
+                    <rect key="frame" x="20" y="296.5" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игрок" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8x-qH-J2a">
+                    <rect key="frame" x="20" y="264" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ассоциации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-vx-gjQ">
-                    <rect key="frame" x="132" y="236.5" width="150" height="43.5"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                    <rect key="frame" x="125" y="124" width="164" height="32.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -51,12 +65,23 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemTealColor"/>
             <constraints>
-                <constraint firstItem="2w6-Td-sKp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7hx-bd-5xt"/>
-                <constraint firstItem="2w6-Td-sKp" firstAttribute="top" secondItem="gbJ-vx-gjQ" secondAttribute="bottom" constant="100" id="8YK-hJ-iRY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4eO-QX-jpx" secondAttribute="trailing" constant="20" id="1LD-wH-jsm"/>
+                <constraint firstItem="O8x-qH-J2a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9FI-sI-2Wm"/>
+                <constraint firstItem="4eO-QX-jpx" firstAttribute="top" secondItem="XaE-DA-ptX" secondAttribute="bottom" constant="24" id="A6T-AW-uX8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gVO-pB-Ixi" secondAttribute="trailing" constant="20" id="D1K-UU-JnZ"/>
                 <constraint firstItem="gbJ-vx-gjQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="IAC-e2-r0b"/>
-                <constraint firstItem="gbJ-vx-gjQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="SBr-wh-OwH"/>
-                <constraint firstItem="2w6-Td-sKp" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="gLE-Vv-Rv6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2w6-Td-sKp" secondAttribute="trailing" constant="20" id="wzt-ZG-b5J"/>
+                <constraint firstItem="XaE-DA-ptX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="S2W-y6-HBG"/>
+                <constraint firstItem="gbJ-vx-gjQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="SBr-wh-OwH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f1z-wd-8Qe" secondAttribute="trailing" constant="20" id="W90-cm-W4g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O8x-qH-J2a" secondAttribute="trailing" constant="20" id="Ywt-WG-zh0"/>
+                <constraint firstItem="f1z-wd-8Qe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZDz-y8-dLE"/>
+                <constraint firstItem="4eO-QX-jpx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aZo-jI-JEm"/>
+                <constraint firstItem="O8x-qH-J2a" firstAttribute="top" secondItem="f1z-wd-8Qe" secondAttribute="bottom" constant="24" id="au0-yq-dKi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XaE-DA-ptX" secondAttribute="trailing" constant="20" id="cUV-24-vgV"/>
+                <constraint firstItem="gVO-pB-Ixi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dpf-ga-wAF"/>
+                <constraint firstItem="XaE-DA-ptX" firstAttribute="top" secondItem="O8x-qH-J2a" secondAttribute="bottom" constant="12" id="rmj-N9-ARN"/>
+                <constraint firstItem="f1z-wd-8Qe" firstAttribute="top" secondItem="gVO-pB-Ixi" secondAttribute="bottom" constant="12" id="xRA-1E-D9F"/>
+                <constraint firstItem="gVO-pB-Ixi" firstAttribute="top" secondItem="gbJ-vx-gjQ" secondAttribute="bottom" constant="20" id="yXc-RE-DSZ"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </view>

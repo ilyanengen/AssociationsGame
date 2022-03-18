@@ -22,10 +22,10 @@ extension UIViewController {
         self.removeFromParent()
     }
     
-    func showAlert(text: String) {
+    func showAlert(title: String, message: String) {
         let alertViewController = UIAlertController(
-            title: "",
-            message: text,
+            title: title,
+            message: message,
             preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertViewController.addAction(okAction)
