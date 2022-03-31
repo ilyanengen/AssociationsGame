@@ -23,8 +23,7 @@ class StartViewController: UIViewController {
             return
         }
         let game = Game(playerName: name,
-                        difficulty: Difficulty(rawValue: difficultySegmentedControl.selectedSegmentIndex)!,
-                        score: 0)
+                        difficulty: Difficulty(rawValue: difficultySegmentedControl.selectedSegmentIndex)!)
         delegate?.startViewControllerDidCreateGame(self, game: game)
     }
 }

@@ -10,10 +10,9 @@ import Foundation
 struct Game {
     let playerName: String
     let difficulty: Difficulty
-    var score: Int
+    var score: Int = 0
 }
 
-// Value describes a number of lives
 enum Difficulty: Int {
     case easy
     case normal
@@ -21,9 +20,9 @@ enum Difficulty: Int {
     
     var lives: Int {
         switch self {
-        case .easy: return 7
+        case .easy:   return 7
         case .normal: return 5
-        case .hard: return 3
+        case .hard:   return 3
         }
     }
 }
