@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0970891127F6369D000F4797 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970891027F6369D000F4797 /* Constants.swift */; };
 		09D4212427E49BEF00B460A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4212327E49BEF00B460A0 /* AppDelegate.swift */; };
 		09D4212D27E49BEF00B460A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09D4212C27E49BEF00B460A0 /* Assets.xcassets */; };
 		09D4213027E49BEF00B460A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D4212E27E49BEF00B460A0 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0970891027F6369D000F4797 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09D4212027E49BEF00B460A0 /* AssociationsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssociationsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D4212327E49BEF00B460A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D4212C27E49BEF00B460A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0970890F27F635D5000F4797 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0970891027F6369D000F4797 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		09D4211727E49BEE00B460A0 = {
 			isa = PBXGroup;
 			children = (
@@ -64,14 +74,15 @@
 		09D4212227E49BEF00B460A0 /* AssociationsGame */ = {
 			isa = PBXGroup;
 			children = (
-				09D4214327E4BA5E00B460A0 /* Model */,
 				09D4213F27E4B83C00B460A0 /* Application */,
-				09D4214027E4B84D00B460A0 /* StartScreen */,
-				09D4214127E4B87400B460A0 /* GameScreen */,
 				09D4214227E4B88600B460A0 /* Extensions */,
+				09D4214127E4B87400B460A0 /* GameScreen */,
+				09D4214327E4BA5E00B460A0 /* Model */,
+				09D4214027E4B84D00B460A0 /* StartScreen */,
+				0970890F27F635D5000F4797 /* Utils */,
 				09D4212C27E49BEF00B460A0 /* Assets.xcassets */,
-				09D4212E27E49BEF00B460A0 /* LaunchScreen.storyboard */,
 				09D4213127E49BEF00B460A0 /* Info.plist */,
+				09D4212E27E49BEF00B460A0 /* LaunchScreen.storyboard */,
 			);
 			path = AssociationsGame;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				09D4214527E4BA6E00B460A0 /* Game.swift in Sources */,
 				09D4213C27E4B7B500B460A0 /* AppViewController.swift in Sources */,
 				09D4212427E49BEF00B460A0 /* AppDelegate.swift in Sources */,
+				0970891127F6369D000F4797 /* Constants.swift in Sources */,
 				09D4214827E4BAA800B460A0 /* GameViewController.swift in Sources */,
 				09D4213927E4B14600B460A0 /* StartViewController.swift in Sources */,
 			);
