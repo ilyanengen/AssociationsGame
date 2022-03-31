@@ -66,16 +66,10 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-H3-6u5">
-                    <rect key="frame" x="149.5" y="356" width="115.5" height="34"/>
+                    <rect key="frame" x="147" y="356" width="120.5" height="34"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Проверить!">
-                                <attributes>
-                                    <font key="NSFont" size="17" name="Helvetica"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                    <buttonConfiguration key="configuration" style="filled" title="Проверить!">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                     </buttonConfiguration>
                 </button>
             </subviews>
