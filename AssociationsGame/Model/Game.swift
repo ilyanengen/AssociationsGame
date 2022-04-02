@@ -10,14 +10,38 @@ import Foundation
 struct Game {
     let playerName: String
     let difficulty: Difficulty
-    var score: Int = 0
+    var livesLeft: Int
+    let levels: [Level]
+    var score: Int
     
-    private let levels: [Level]
+    var levelIndex: Int
+    var levelCounter: Int
     
     init(playerName: String, difficulty: Difficulty, associations: [String : [String : Int]]) {
         self.playerName = playerName
         self.difficulty = difficulty
+        self.livesLeft = difficulty.lives
         self.levels = associations.map { Level(word: $0.key, associations: $0.value) }
+        self.score = 0
+        self.levelIndex = 0
+        self.levelCounter = 1
+    }
+    
+    mutating func moveToNextLevel() {
+        if levels.count < (levelCounter + 1) {
+            self.levelIndex += 1
+            self.levelCounter += 1
+        } else {
+            print("ERROR! moveToNextLevel failed")
+        }
+    }
+    
+    func getAnswerWord() -> String {
+        return levels[levelIndex].word
+    }
+    
+    func getAssociations() -> [String] {
+        return levels[levelIndex].associations
     }
 }
 
