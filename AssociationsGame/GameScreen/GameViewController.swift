@@ -11,6 +11,11 @@ class GameViewController: UIViewController {
 
     weak var delegate: GameViewControllerDelegate?
     
+    @IBOutlet private weak var levelLabel: UILabel!
+    @IBOutlet private weak var livesCountLabel: UILabel!
+    @IBOutlet private weak var associationsTextView: UITextView!
+    @IBOutlet private weak var answerTextField: UITextField!
+    
     private var game: Game
     
     init(game: Game) {
@@ -25,6 +30,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction private func checkAnswerDidTap(_ sender: UIButton) {
+        print("check button tap!")
     }
 }
 
