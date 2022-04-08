@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game {
+class Game {
     let playerName: String
     let difficulty: Difficulty
     var livesLeft: Int
@@ -27,7 +27,7 @@ struct Game {
         self.levelCounter = 1
     }
     
-    mutating func moveToNextLevel() {
+    func moveToNextLevel() {
         if levels.count < (levelCounter + 1) {
             self.levelIndex += 1
             self.levelCounter += 1
