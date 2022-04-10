@@ -47,7 +47,14 @@ class GameViewController: UIViewController {
             return
         }
         let result = game.handleAnswer(answer)
-        showAlert(title: result.resultTitle, message: result.resultMessage)
+        showAlert(title: result.resultTitle, message: result.resultMessage) { _ in
+            switch result.type {
+            case .failureGameOver, .successGameOver:
+                self.delegate?.gameViewControllerDidFinishGame(self, game: self.game)
+            case .successNextLevel, .failureTryAgain:
+                break
+            }
+        }
         updateViews()
     }
 }

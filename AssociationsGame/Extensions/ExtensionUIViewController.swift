@@ -26,12 +26,12 @@ extension UIViewController {
         showAlert(title: "Ошибка", message: message)
     }
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alertViewController = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: handler)
         alertViewController.addAction(okAction)
         present(alertViewController, animated: true)
     }

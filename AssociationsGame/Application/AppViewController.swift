@@ -48,7 +48,7 @@ extension AppViewController: GameViewControllerDelegate {
         fileManager.addResultToFile(resultString)
         
         if let allResults = fileManager.getResultsFromFile() {
-            print("HIGH SCORE: \(allResults)")
+            print("HIGH SCORE:\n\(allResults)")
         }
     }
 }
