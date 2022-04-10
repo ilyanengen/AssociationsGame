@@ -22,6 +22,7 @@ class ResultsFileManager {
     
     func getResultsFromFile() -> String? {
         let filenameUrl = getDocumentsDirectoryFileUrl()
+        print("filenameUrl = \(filenameUrl)")
         guard FileManager.default.fileExists(atPath: filenameUrl.path) else {
             print("ERROR! Failed to load results from .txt file")
             return nil
