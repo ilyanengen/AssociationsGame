@@ -17,7 +17,7 @@ class AppViewController: UIViewController {
     }
     
     private func showStartScreen() {
-        let startVC = StartViewController()
+        let startVC = StartViewController(resultsFileManager: fileManager)
         startVC.delegate = self
         add(startVC)
     }

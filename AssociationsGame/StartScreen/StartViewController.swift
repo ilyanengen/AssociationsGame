@@ -9,10 +9,26 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    weak var delegate: StartViewControllerDelegate?
+    
+    private let resultsFileManager: ResultsFileManager
+    
     @IBOutlet private weak var difficultySegmentedControl: UISegmentedControl!
     @IBOutlet private weak var playerNameTextfield: UITextField!
+
+    init (resultsFileManager: ResultsFileManager) {
+        self.resultsFileManager = resultsFileManager
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    weak var delegate: StartViewControllerDelegate?
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBAction func showHighScoreDidTap(_ sender: Any) {
+        guard let results = resultsFileManager.getResultsFromFile() else { return }
+        showAlert(title: "Результаты", message: results)
+    }
     
     @IBAction private func startButtonDidTap(_ sender: Any) {
         guard

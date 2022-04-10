@@ -61,6 +61,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCc-az-1wR">
+                    <rect key="frame" x="274" y="64" width="120" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Результаты">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="showHighScoreDidTap:" destination="-1" eventType="touchUpInside" id="HIQ-y3-NWh"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -70,6 +80,7 @@
                 <constraint firstItem="4eO-QX-jpx" firstAttribute="top" secondItem="XaE-DA-ptX" secondAttribute="bottom" constant="24" id="A6T-AW-uX8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gVO-pB-Ixi" secondAttribute="trailing" constant="20" id="D1K-UU-JnZ"/>
                 <constraint firstItem="gbJ-vx-gjQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="IAC-e2-r0b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xCc-az-1wR" secondAttribute="trailing" constant="20" id="IGc-qA-2EK"/>
                 <constraint firstItem="XaE-DA-ptX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="S2W-y6-HBG"/>
                 <constraint firstItem="gbJ-vx-gjQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="SBr-wh-OwH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f1z-wd-8Qe" secondAttribute="trailing" constant="20" id="W90-cm-W4g"/>
@@ -79,6 +90,7 @@
                 <constraint firstItem="O8x-qH-J2a" firstAttribute="top" secondItem="f1z-wd-8Qe" secondAttribute="bottom" constant="24" id="au0-yq-dKi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XaE-DA-ptX" secondAttribute="trailing" constant="20" id="cUV-24-vgV"/>
                 <constraint firstItem="gVO-pB-Ixi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dpf-ga-wAF"/>
+                <constraint firstItem="xCc-az-1wR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="izB-4P-Rs3"/>
                 <constraint firstItem="XaE-DA-ptX" firstAttribute="top" secondItem="O8x-qH-J2a" secondAttribute="bottom" constant="12" id="rmj-N9-ARN"/>
                 <constraint firstItem="f1z-wd-8Qe" firstAttribute="top" secondItem="gVO-pB-Ixi" secondAttribute="bottom" constant="12" id="xRA-1E-D9F"/>
                 <constraint firstItem="gVO-pB-Ixi" firstAttribute="top" secondItem="gbJ-vx-gjQ" secondAttribute="bottom" constant="20" id="yXc-RE-DSZ"/>
