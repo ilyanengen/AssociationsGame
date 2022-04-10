@@ -8,6 +8,8 @@
 import UIKit
 
 class AppViewController: UIViewController {
+    
+    private let fileManager = ResultsFileManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,14 @@ extension AppViewController: StartViewControllerDelegate {
 
 extension AppViewController: GameViewControllerDelegate {
     func gameViewControllerDidFinishGame(_ controller: GameViewController, game: Game) {
+        
+        let resultString = game.playerName + " - " + "\(game.score)"
+        fileManager.addResultToFile(resultString)
+        
+        if let allResults = fileManager.getResultsFromFile() {
+            print("HIGH SCORE: \(allResults)")
+        }
+                  
         showStartScreen()
         controller.remove()
     }
