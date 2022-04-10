@@ -38,15 +38,17 @@ extension AppViewController: StartViewControllerDelegate {
 
 extension AppViewController: GameViewControllerDelegate {
     func gameViewControllerDidFinishGame(_ controller: GameViewController, game: Game) {
-        
+        saveResults(game)
+        showStartScreen()
+        controller.remove()
+    }
+    
+    private func saveResults(_ game: Game) {
         let resultString = game.playerName + " - " + "\(game.score)"
         fileManager.addResultToFile(resultString)
         
         if let allResults = fileManager.getResultsFromFile() {
             print("HIGH SCORE: \(allResults)")
         }
-                  
-        showStartScreen()
-        controller.remove()
     }
 }
