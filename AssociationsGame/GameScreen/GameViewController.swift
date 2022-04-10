@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var livesCountLabel: UILabel!
     @IBOutlet private weak var associationsTextView: UITextView!
     @IBOutlet private weak var answerTextField: UITextField!
+    @IBOutlet private weak var scoreLabel: UILabel!
     
     private var game: Game
     
@@ -34,6 +35,7 @@ class GameViewController: UIViewController {
     
     private func updateViews() {
         levelLabel.text = "\(game.levelCounter)"
+        scoreLabel.text = "\(game.score)"
         livesCountLabel.text = "\(game.livesLeft)"
         associationsTextView.text = game.getAssociationsText()
         answerTextField.text = nil

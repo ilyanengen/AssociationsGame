@@ -73,24 +73,27 @@ class Game {
     }
     
     private func buildResult(isCorrect: Bool, isMoreLevels: Bool?) -> GameResult {
-        
         if isCorrect {
             
             if let isMoreLevels = isMoreLevels, isMoreLevels == true {
-                return GameResult(resultTitle: "ВЕРНО",
-                                  resultMessage: "Молодец! Переходим на следующий уровень")
+                return GameResult(type: .successNextLevel,
+                                  resultTitle: "ВЕРНО",
+                                  resultMessage: "Молодец!\nПереходим на следующий уровень")
             } else {
-                return GameResult(resultTitle: "ВЕРНО",
-                                  resultMessage: "ПОЗДРАВЛЯЕМ! Вы прошли все уровни. Счёт: \(score)")
+                return GameResult(type: .successGameOver,
+                                  resultTitle: "ВЕРНО",
+                                  resultMessage: "ПОЗДРАВЛЯЕМ!\nВы прошли все уровни. Счёт: \(score)")
             }
             
         } else {
             
             if livesLeft == 0 {
-                return GameResult(resultTitle: "GAME OVER",
+                return GameResult(type: .failureGameOver,
+                                  resultTitle: "GAME OVER",
                                   resultMessage: "Правильный ответ: \(getAnswerWord()).\nСчёт: \(score)")
             } else {
-                return GameResult(resultTitle: "НЕВЕРНО",
+                return GameResult(type: .failureTryAgain,
+                                  resultTitle: "НЕВЕРНО",
                                   resultMessage: "Попробуй ещё! :)")
             }
         }
@@ -131,7 +134,15 @@ struct Level {
     }
 }
 
+enum GameResultType {
+    case successNextLevel
+    case successGameOver
+    case failureTryAgain
+    case failureGameOver
+}
+
 struct GameResult {
+    let type: GameResultType
     let resultTitle: String
     let resultMessage: String
 }
