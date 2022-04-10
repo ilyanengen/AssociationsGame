@@ -12,59 +12,88 @@ class Game {
     let difficulty: Difficulty
     var livesLeft: Int
     let levels: [Level]
-    var score: Int
+    var score: Int = 0
     
-    var levelIndex: Int
-    var levelCounter: Int
+    var levelCounter: Int {
+        return levelIndex + 1
+    }
+    
+    private var levelIndex: Int = 0
+    private var tryCounter: Int = 0
     
     init(playerName: String, difficulty: Difficulty, associations: [String : [String : Int]]) {
         self.playerName = playerName
         self.difficulty = difficulty
         self.livesLeft = difficulty.lives
         self.levels = associations.map { Level(word: $0.key, associations: $0.value) }
-        self.score = 0
-        self.levelIndex = 0
-        self.levelCounter = 1
     }
     
-    func moveToNextLevel() {
-        if levels.count < (levelCounter + 1) {
-            self.levelIndex += 1
-            self.levelCounter += 1
-        } else {
-            print("ERROR! moveToNextLevel failed")
-        }
-    }
-    
-    func getAnswerWord() -> String {
-        return levels[levelIndex].word
-    }
+    // MARK: - Public methods
     
     func getAssociationsText() -> String {
         let allLevelAssociations = levels[levelIndex].associations
-        return
+        let associationsForTry = Array(allLevelAssociations[0...tryCounter])
+        return associationsForTry.joined(separator: ", ")
     }
     
-    func checkAnswer(_ answer: String) -> Bool {
-        // проверить правильность
-        let isCorrect = answer == levels[levelIndex].word
+    func handleAnswer(_ answer: String) -> GameResult {
+        let isCorrect = answer == getAnswerWord()
+        var isMoreLevels: Bool? = nil
         
         if isCorrect {
-            // + score
-            // goToNextLevel
-        
+            score += difficulty.scoreRate
+            isMoreLevels = moveToNextLevelIfExist()
         } else {
-            // отнять 1 жизнь
-            
-            //
-            if livesLeft > 0 {
-                // добавить след слово в ассоциации
+            if livesLeft > 1 {
+                livesLeft -= 1
+                tryCounter += 1 // для добавления подсказок (еще ассоциации)
             } else {
-                // вернуть return false
+                livesLeft = 0 // game over
             }
         }
         
-        return isCorrect
+        return buildResult(isCorrect: isCorrect, isMoreLevels: isMoreLevels)
+    }
+    
+    // MARK: - Private methods
+    
+    private func getAnswerWord() -> String {
+        return levels[levelIndex].word
+    }
+    
+    private func moveToNextLevelIfExist() -> Bool {
+        if (levelIndex + 1) < levels.count {
+            levelIndex += 1
+            tryCounter = 0
+            return true
+        } else {
+            print("ERROR! moveToNextLevel failed")
+            return false
+        }
+    }
+    
+    private func buildResult(isCorrect: Bool, isMoreLevels: Bool?) -> GameResult {
+        
+        if isCorrect {
+            
+            if let isMoreLevels = isMoreLevels, isMoreLevels == true {
+                return GameResult(resultTitle: "ВЕРНО",
+                                  resultMessage: "Молодец! Переходим на следующий уровень")
+            } else {
+                return GameResult(resultTitle: "ВЕРНО",
+                                  resultMessage: "ПОЗДРАВЛЯЕМ! Вы прошли все уровни. Счёт: \(score)")
+            }
+            
+        } else {
+            
+            if livesLeft == 0 {
+                return GameResult(resultTitle: "GAME OVER",
+                                  resultMessage: "Правильный ответ: \(getAnswerWord()).\nСчёт: \(score)")
+            } else {
+                return GameResult(resultTitle: "НЕВЕРНО",
+                                  resultMessage: "Попробуй ещё! :)")
+            }
+        }
     }
 }
 
@@ -80,6 +109,14 @@ enum Difficulty: Int {
         case .hard:   return 3
         }
     }
+    
+    var scoreRate: Int {
+        switch self {
+        case .easy:   return 1
+        case .normal: return 2
+        case .hard:   return 3
+        }
+    }
 }
 
 struct Level {
@@ -92,4 +129,9 @@ struct Level {
         let values = sortedFromHardestToEasiest.map { $0.key }
         self.associations = values
     }
+}
+
+struct GameResult {
+    let resultTitle: String
+    let resultMessage: String
 }

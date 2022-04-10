@@ -29,7 +29,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateViews()
     }
     
@@ -37,6 +36,7 @@ class GameViewController: UIViewController {
         levelLabel.text = "\(game.levelCounter)"
         livesCountLabel.text = "\(game.livesLeft)"
         associationsTextView.text = game.getAssociationsText()
+        answerTextField.text = nil
     }
     
     @IBAction private func checkAnswerDidTap(_ sender: UIButton) {
@@ -44,7 +44,8 @@ class GameViewController: UIViewController {
             showErrorAlert(message: "Введите ответ")
             return
         }
-        let isCorrectAnswer = game.checkAnswer(answer)
+        let result = game.handleAnswer(answer)
+        showAlert(title: result.resultTitle, message: result.resultMessage)
         updateViews()
     }
 }
