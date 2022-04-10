@@ -13,7 +13,7 @@ class ResultsFileManager {
     
     func addResultToFile(_ result: String) {
         if let existingResultsString = getResultsFromFile() {
-            let updatedResults = existingResultsString + ",\n" + result
+            let updatedResults = existingResultsString + "\n" + result
             saveResultsToFile(updatedResults)
         } else {
             saveResultsToFile(result)
