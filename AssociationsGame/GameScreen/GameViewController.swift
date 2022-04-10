@@ -30,17 +30,22 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        updateViews()
     }
     
-    private func setupViews() {
+    private func updateViews() {
         levelLabel.text = "\(game.levelCounter)"
         livesCountLabel.text = "\(game.livesLeft)"
-        associationsTextView.text = game.levels.first?.associations.first ?? ""
+        associationsTextView.text = game.getAssociationsText()
     }
     
     @IBAction private func checkAnswerDidTap(_ sender: UIButton) {
-        print("check button tap!")
+        guard let answer = answerTextField.text?.lowercased(), answer.isEmpty == false else {
+            showErrorAlert(message: "Введите ответ")
+            return
+        }
+        let isCorrectAnswer = game.checkAnswer(answer)
+        updateViews()
     }
 }
 

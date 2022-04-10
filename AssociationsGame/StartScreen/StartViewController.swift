@@ -19,7 +19,7 @@ class StartViewController: UIViewController {
             let name = playerNameTextfield.text,
             name.isEmpty == false
         else {
-            showAlert(title: "Ошибка", message: "Введите имя")
+            showErrorAlert(message: "Введите имя")
             return
         }
         let game = Game(playerName: name,

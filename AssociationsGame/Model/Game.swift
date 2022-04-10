@@ -40,8 +40,31 @@ class Game {
         return levels[levelIndex].word
     }
     
-    func getAssociations() -> [String] {
-        return levels[levelIndex].associations
+    func getAssociationsText() -> String {
+        let allLevelAssociations = levels[levelIndex].associations
+        return
+    }
+    
+    func checkAnswer(_ answer: String) -> Bool {
+        // проверить правильность
+        let isCorrect = answer == levels[levelIndex].word
+        
+        if isCorrect {
+            // + score
+            // goToNextLevel
+        
+        } else {
+            // отнять 1 жизнь
+            
+            //
+            if livesLeft > 0 {
+                // добавить след слово в ассоциации
+            } else {
+                // вернуть return false
+            }
+        }
+        
+        return isCorrect
     }
 }
 

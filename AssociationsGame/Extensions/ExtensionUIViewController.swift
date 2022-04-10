@@ -22,6 +22,10 @@ extension UIViewController {
         self.removeFromParent()
     }
     
+    func showErrorAlert(message: String) {
+        showAlert(title: "Ошибка", message: message)
+    }
+    
     func showAlert(title: String, message: String) {
         let alertViewController = UIAlertController(
             title: title,
